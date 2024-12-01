@@ -7,6 +7,11 @@
 */
 import Arrow from "../../assets/LandingPage/Black-Arrow.png";
 
+type DataStructuresProps = {
+    display: boolean;
+    changeDisplay: () => {};
+};
+
 const DataStructures = () => {
     return (
         <>

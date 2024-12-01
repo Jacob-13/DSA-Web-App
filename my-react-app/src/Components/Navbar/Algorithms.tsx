@@ -6,7 +6,14 @@
 
 import Arrow from "../../assets/LandingPage/Black-Arrow.png";
 
-const Algorithms = () => {
+type AlgorithmsProps = {
+    display: boolean;
+    changeDisplay: () => {};
+};
+
+const Algorithms = ({ display, changeDisplay }: AlgorithmsProps) => {
+    // use the props to change how the triangle rotates
+
     return (
         <>
             <div className="flex text-5xl font-semibold cursor-pointer">
