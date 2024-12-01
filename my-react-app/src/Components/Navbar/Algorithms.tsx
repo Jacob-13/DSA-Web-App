@@ -8,11 +8,15 @@ import Arrow from "../../assets/LandingPage/Black-Arrow.png";
 
 type AlgorithmsProps = {
     display: boolean;
-    changeDisplay: () => {};
+    changeDisplay: () => void;
 };
 
 const Algorithms = ({ display, changeDisplay }: AlgorithmsProps) => {
     // use the props to change how the triangle rotates
+
+    function handleClick() {
+        changeDisplay();
+    }
 
     const menuSymbol = `${
         display
@@ -24,7 +28,8 @@ const Algorithms = ({ display, changeDisplay }: AlgorithmsProps) => {
         <>
             <div
                 className="flex text-5xl font-semibold cursor-pointer"
-                onClick={changeDisplay}>
+                onClick={() => handleClick()}
+            >
                 Algorithms
                 <img className={menuSymbol} src={Arrow} />
             </div>

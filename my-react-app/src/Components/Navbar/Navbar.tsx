@@ -34,18 +34,16 @@ const Navbar = () => {
         console.log("testing");
     }
 
-    useEffect(() => {}, [displayDataStructures, displayAlgorithms]);
-
     return (
         <div className="flex place-content-evenly items-center py-3 bg-gradient-to-b from-[#EEC584] to-[#FF7394]">
             <HomeIcon />
             <DataStructures
                 display={displayDataStructures}
-                changeDisplay={() => handleDataStructures}
+                changeDisplay={handleDataStructures}
             />
             <Algorithms
                 display={displayAlgorithms}
-                changeDisplay={() => handleAlgorithms}
+                changeDisplay={handleAlgorithms}
             />
         </div>
     );
