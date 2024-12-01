@@ -5,6 +5,7 @@
 
     For the drop down state, should be controlled through the parent component becuase when the algorithms one is clicked it should also close this one
 */
+import { useEffect } from "react";
 import Arrow from "../../assets/LandingPage/Black-Arrow.png";
 
 type DataStructuresProps = {
@@ -12,15 +13,24 @@ type DataStructuresProps = {
     changeDisplay: () => {};
 };
 
-const DataStructures = () => {
+const DataStructures = ({ display, changeDisplay }: DataStructuresProps) => {
+    // might need to add a useEffect to re-render
+
+    useEffect(() => {}, [display]);
+
+    const menuSymbol = `${
+        display
+            ? "relative ml-5 mt-5 h-5 w-5"
+            : "relative ml-5 mt-5 h-5 w-5 rotate-90"
+    }`;
+
     return (
         <>
-            <div className="flex w-fit text-5xl font-semibold cursor-pointer">
+            <div
+                className="flex w-fit text-5xl font-semibold cursor-pointer"
+                onClick={changeDisplay}>
                 Data Structures
-                <img
-                    className="relative ml-5 mt-5 h-5 w-5 rotate-90"
-                    src={Arrow}
-                />
+                <img className={menuSymbol} src={Arrow} />
             </div>
         </>
     );

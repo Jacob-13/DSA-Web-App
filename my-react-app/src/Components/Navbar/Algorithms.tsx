@@ -14,14 +14,19 @@ type AlgorithmsProps = {
 const Algorithms = ({ display, changeDisplay }: AlgorithmsProps) => {
     // use the props to change how the triangle rotates
 
+    const menuSymbol = `${
+        display
+            ? "relative ml-5 mt-5 h-5 w-5"
+            : "relative ml-5 mt-5 h-5 w-5 rotate-90"
+    }`;
+
     return (
         <>
-            <div className="flex text-5xl font-semibold cursor-pointer">
+            <div
+                className="flex text-5xl font-semibold cursor-pointer"
+                onClick={changeDisplay}>
                 Algorithms
-                <img
-                    className="relative ml-5 mt-5 h-5 w-5 rotate-90"
-                    src={Arrow}
-                />
+                <img className={menuSymbol} src={Arrow} />
             </div>
         </>
     );
