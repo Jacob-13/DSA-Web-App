@@ -1,3 +1,7 @@
+/*
+    Component contains the code for the hero text on the landing page
+*/
+
 const LandingText = () => {
     return (
         <div className="relative max-w-[36rem] w-1/3 top-1/3">

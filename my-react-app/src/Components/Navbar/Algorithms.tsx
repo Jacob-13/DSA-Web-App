@@ -18,6 +18,7 @@ const Algorithms = ({ display, changeDisplay }: AlgorithmsProps) => {
         changeDisplay();
     }
 
+    // This is the tailwindcss classname used for the dropdown arrow. The conditional allows for the rotation, should add an animation as finishing touch
     const menuSymbol = `${
         display
             ? "relative ml-5 mt-5 h-5 w-5"
@@ -28,8 +29,7 @@ const Algorithms = ({ display, changeDisplay }: AlgorithmsProps) => {
         <>
             <div
                 className="flex text-5xl font-semibold cursor-pointer"
-                onClick={() => handleClick()}
-            >
+                onClick={() => handleClick()}>
                 Algorithms
                 <img className={menuSymbol} src={Arrow} />
             </div>
