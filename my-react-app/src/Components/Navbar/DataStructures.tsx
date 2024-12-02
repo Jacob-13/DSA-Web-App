@@ -29,8 +29,7 @@ const DataStructures = ({ display, changeDisplay }: DataStructuresProps) => {
         <>
             <div
                 className="flex w-fit text-5xl font-semibold cursor-pointer"
-                onClick={() => handleClick()}
-            >
+                onClick={() => handleClick()}>
                 Data Structures
                 <img className={menuSymbol} src={Arrow} />
             </div>
