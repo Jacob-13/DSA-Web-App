@@ -19,29 +19,24 @@ const Navbar = () => {
         useState<boolean>(false);
     const [displayAlgorithms, setDisplayAlgorithms] = useState<boolean>(false);
     // Width of the referenced div from the useRef
-    const [width, setWidth] = useState(0);
-    const [aWidth, setAWidth] = useState(0);
+    const [width, setWidth] = useState<number>(300);
+    const [aWidth, setAWidth] = useState<number>(3000);
 
     // making use of useRef to get the width of the idv element from the data structures navbar dropdown button and passing it to the actual menu to match the width
     // using this method so that it is consistently always the same size as the menu button no matter what device or screen size the user is using
-    const divWidth = useRef<HTMLDivElement | null>(null);
-    const aDivWidth = useRef<HTMLDivElement | null>(null);
+    const dSDiv = useRef<HTMLDivElement | null>(null);
+    const aDiv = useRef<HTMLDivElement | null>(null);
 
     useEffect(() => {
-        setTimeout(() => {
-            if (divWidth.current) {
-                let width = divWidth.current.offsetWidth;
-                setWidth(width);
-                console.log(width);
-            }
-        }, 0);
-        setTimeout(() => {
-            if (aDivWidth.current) {
-                let width = aDivWidth.current.offsetWidth;
-                setWidth(width);
-                console.log(width);
-            }
-        }, 0);
+        // width management for Data Structures menu
+        if (dSDiv.current) {
+            setWidth(dSDiv.current.offsetWidth);
+        }
+
+        // Width management for Algorithms menu
+        if (aDiv.current) {
+            setAWidth(aDiv.current.offsetWidth);
+        }
     }, []);
 
     // Handles DataStructures onClick, passed as a prop
@@ -63,8 +58,8 @@ const Navbar = () => {
     return (
         <div className="flex relative place-content-evenly items-center py-3 bg-gradient-to-b from-[#EEC584] to-[#FF7394]">
             <HomeIcon />
-            <div className="w-fit" ref={divWidth}>
-                <div>
+            <div>
+                <div ref={dSDiv}>
                     <DataStructures
                         display={displayDataStructures}
                         changeDisplay={handleDataStructures}
@@ -74,7 +69,7 @@ const Navbar = () => {
                     {displayDataStructures ? <DSMenu size={width} /> : <></>}
                 </div>
             </div>
-            <div className="w-fit" ref={aDivWidth}>
+            <div ref={aDiv}>
                 <div>
                     <Algorithms
                         display={displayAlgorithms}

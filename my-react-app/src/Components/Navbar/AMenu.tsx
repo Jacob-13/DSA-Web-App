@@ -4,11 +4,11 @@
 
 import { Link } from "react-router-dom";
 
-type DataStructuresProps = {
+type AMenuProps = {
     size: number;
 };
 
-const AMenu = ({ size }: DataStructuresProps) => {
+const AMenu = ({ size }: AMenuProps) => {
     // all tailwind classes for this component to prevent re-writing the same styling
     const wrappingDiv = `absolute border-2 p-2 mt-5 bg-gray-700 rounded-lg text-gray-200 w-[${size}px] z-10`;
     const linkClass = "text-xl w-full";
