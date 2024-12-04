@@ -4,14 +4,10 @@
 
 import { Link } from "react-router-dom";
 
-type AMenuProps = {
-    size: number;
-};
-
-const AMenu = ({ size }: AMenuProps) => {
+const AMenu = () => {
     // all tailwind classes for this component to prevent re-writing the same styling
-    const wrappingDiv = `absolute border-2 p-2 max-h-80 overflow-y-scroll mt-5 bg-gray-700 rounded-lg text-gray-200 w-[${size}px] z-10`;
-    const linkClass = "text-xl w-full";
+    const wrappingDiv = `absolute border-2 p-2 max-h-80 overflow-y-scroll mt-5 bg-gray-700 rounded-lg text-gray-200 z-10`;
+    const linkClass = "text-xl w-full font-semibold";
     const divClass = "bg-gray-600 my-2 p-1 pr-14";
 
     return (

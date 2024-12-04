@@ -6,7 +6,7 @@
 
 */
 
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 import Algorithms from "./Algorithms";
 import DataStructures from "./DataStructures";
 import HomeIcon from "./HomeIcon";
@@ -18,26 +18,6 @@ const Navbar = () => {
     const [displayDataStructures, setDisplayDataStructures] =
         useState<boolean>(false);
     const [displayAlgorithms, setDisplayAlgorithms] = useState<boolean>(false);
-    // Width of the referenced div from the useRef
-    const [width, setWidth] = useState<number>(300);
-    const [aWidth, setAWidth] = useState<number>(3000);
-
-    // making use of useRef to get the width of the idv element from the data structures navbar dropdown button and passing it to the actual menu to match the width
-    // using this method so that it is consistently always the same size as the menu button no matter what device or screen size the user is using
-    const dSDiv = useRef<HTMLDivElement | null>(null);
-    const aDiv = useRef<HTMLDivElement | null>(null);
-
-    useEffect(() => {
-        // width management for Data Structures menu
-        if (dSDiv.current) {
-            setWidth(dSDiv.current.offsetWidth);
-        }
-
-        // Width management for Algorithms menu
-        if (aDiv.current) {
-            setAWidth(aDiv.current.offsetWidth);
-        }
-    }, []);
 
     // Handles DataStructures onClick, passed as a prop
     function handleDataStructures() {
@@ -59,24 +39,22 @@ const Navbar = () => {
         <div className="flex relative place-content-evenly items-center py-3 bg-gradient-to-b from-[#EEC584] to-[#FF7394]">
             <HomeIcon />
             <div>
-                <div ref={dSDiv}>
+                <div>
                     <DataStructures
                         display={displayDataStructures}
                         changeDisplay={handleDataStructures}
                     />
                 </div>
-                <div>
-                    {displayDataStructures ? <DSMenu size={width} /> : <></>}
-                </div>
+                <div>{displayDataStructures ? <DSMenu /> : <></>}</div>
             </div>
-            <div ref={aDiv}>
+            <div>
                 <div>
                     <Algorithms
                         display={displayAlgorithms}
                         changeDisplay={handleAlgorithms}
                     />
                 </div>
-                <div>{displayAlgorithms ? <AMenu size={aWidth} /> : <></>}</div>
+                <div>{displayAlgorithms ? <AMenu /> : <></>}</div>
             </div>
         </div>
     );
