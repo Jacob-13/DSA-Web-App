@@ -10,9 +10,9 @@ type DSMenuProps = {
 
 const DSMenu = ({ size }: DSMenuProps) => {
     // all tailwind classes for this component to prevent re-writing the same styling
-    const wrappingDiv = `absolute border-2 p-2 mt-5 bg-gray-700 rounded-lg text-gray-200 w-[${size}px] z-10`;
+    const wrappingDiv = `absolute border-2 p-2 max-h-80 overflow-y-scroll mt-5 bg-gray-700 rounded-lg text-gray-200 w-[${size}px] z-10`;
     const linkClass = "text-xl w-full";
-    const divClass = "bg-gray-600 my-2 p-1";
+    const divClass = "bg-gray-600 my-2 p-1 pr-14";
 
     return (
         <div className={wrappingDiv}>
